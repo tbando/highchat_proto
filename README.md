@@ -9,6 +9,6 @@
 
 docker-compose up した状態で
 ```
-docker-compose back rails-app rails db:create
-docker-compose back rails-app rails db:migrate
+docker-compose run back rails db:create
+docker-compose run back rails db:migrate
 ```
