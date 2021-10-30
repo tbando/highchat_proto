@@ -1,0 +1,55 @@
+version: "3"
+
+services:
+
+  db:
+    container_name: sample_db
+    image: postgres:11.4-alpine
+    environment:
+      - TZ=Asia/Tokyo
+    volumes:
+      - ./back/tmp/db:/var/lib/postgresql/data:z
+    networks:
+      - bay_network
+
+  back:
+    container_name: sample_back
+    hostname: back
+    build: back/
+    volumes:
+      - ./back:/app
+    depends_on:
+      - db
+    ports:
+      - 3000:3000
+    networks:
+      - bay_network
+
+  front:
+    container_name: sample_front
+    hostname: front
+    build: front/
+    command: npm run dev
+    volumes:
+      - ./front:/app
+    ports:
+      - 8080:3000
+    networks:
+      - bay_network
+            
+  nginx:
+    image: nginx:latest
+    build:
+      context: nginx
+    restart: always
+    volumes:
+      - ./html:/usr/share/nginx/html
+    networks:
+      - bay_network
+    depends_on:
+      - back
+    ports:
+      - 80:80
+networks:
+  bay_network:
+    external: true
