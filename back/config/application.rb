@@ -23,7 +23,7 @@ module App
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 6.1
-    config.hosts << "dev.highchat.ikasekai.com"
+    config.hosts << ENV.fetch('SERVICE_FQDN')
     config.hosts << "back"
     # Configuration for the application, engines, and railties goes here.
     #

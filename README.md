@@ -2,6 +2,8 @@
 
 
 初回セットアップ
+direnvをinstallして、 `direnv allow` します。
+ref. https://qiita.com/kompiro/items/5fc46089247a56243a62
 
 ```docker network create bay_network```
 

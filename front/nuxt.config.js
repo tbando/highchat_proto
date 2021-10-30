@@ -39,7 +39,7 @@ export default {
 	],
   axios: {
     baseURL: "http://back:3000/",
-    browserBaseURL: "http://dev.highchat.ikasekai.com/"
+    browserBaseURL: "http://" + process.env.API_BASE_URL + "/"
   },
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
