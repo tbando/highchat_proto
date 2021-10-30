@@ -3,7 +3,7 @@ version: "3"
 services:
 
   db:
-    container_name: sample_db
+    #container_name: sample_db
     image: postgres:11.4-alpine
     environment:
       - TZ=Asia/Tokyo
@@ -13,7 +13,7 @@ services:
       - bay_network
 
   back:
-    container_name: sample_back
+    #container_name: sample_back
     hostname: back
     build: back/
     volumes:
@@ -26,7 +26,7 @@ services:
       - bay_network
 
   front:
-    container_name: sample_front
+          #container_name: sample_front
     hostname: front
     build: front/
     command: npm run dev
