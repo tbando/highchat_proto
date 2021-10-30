@@ -2,6 +2,7 @@
 
 
 初回セットアップ
+設定をデフォルトから変更して実行したい場合、`.envrc.tmpl`を参考に`.envrc`を作成し、  
 direnvをinstallして、 `direnv allow` します。
 ref. https://qiita.com/kompiro/items/5fc46089247a56243a62
 
